@@ -1,6 +1,7 @@
 export const addTwoNumbers = (a: number, b: number) => a + b;
 
 type Params = {
+
   first: number;
   second: number;
 };
@@ -20,3 +21,13 @@ export const getName2 = (first: string, last?: string) => {
   }
   return first;
 };
+
+interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  isAdmin: boolean;
+}
+
+
+export const getUserId = (user: User) => user.id;

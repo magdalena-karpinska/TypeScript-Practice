@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName, getName2 } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2, getUserId } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -52,7 +52,7 @@ describe('ts tests', () => {
     // assert
     assert.strictEqual('Matt Dude', name2);
   });
-  
+
   it('Should work with only the first name as param', () => {
     // arrange
     // act
@@ -63,4 +63,24 @@ describe('ts tests', () => {
     assert.strictEqual('Matt Dude', bothNames);
   });
 
+  it('Should get the user ID', () => {
+    // arrange
+    interface User {
+      id: number;
+      firstName: string;
+      lastName: string;
+      isAdmin: boolean;
+    };
+
+    const defaultUser: User = {
+      id: 1,
+      firstName: 'Matt',
+      lastName: 'Dude',
+      isAdmin: false,
+    };
+    // act
+    const id = getUserId(defaultUser);
+    // asssert
+    assert.strictEqual(id, 1);
+  });
 });
