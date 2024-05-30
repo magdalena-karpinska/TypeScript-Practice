@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser, makeUser, defaultUser2 } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -69,5 +69,18 @@ describe('ts tests', () => {
     const id = getUserId(defaultUser);
     // asssert
     assert.strictEqual(id, 1);
+  });
+
+  it('Should return a valid user', () => {
+    // arrange
+    // act
+    const user = makeUser();
+    // assert
+    assert.strictEqual(typeof user.id, 'number');
+    assert.strictEqual(typeof user.firstName, 'string');
+    assert.strictEqual(typeof user.lastName, 'string');
+    assert.strictEqual(typeof user.role, 'string');
+    assert.strictEqual(typeof user.posts[0].id, 'number');
+    assert.strictEqual(typeof user.posts[0].title, 'string');
   });
 });

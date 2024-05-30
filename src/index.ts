@@ -77,3 +77,18 @@ interface Post {
       }
     ]
   };
+
+  export const makeUser = ():User2 => {
+    return {
+    id: 1,
+    firstName: 'Matt',
+    lastName: 'Dude',
+    role: 'admin',
+    posts:[
+      {
+      id: 1,
+      title: 'How I eat so much cheese',
+      }
+    ]
+    };
+  };
