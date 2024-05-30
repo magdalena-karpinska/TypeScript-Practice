@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName, getName2, getUserId } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -65,19 +65,6 @@ describe('ts tests', () => {
 
   it('Should get the user ID', () => {
     // arrange
-    interface User {
-      id: number;
-      firstName: string;
-      lastName: string;
-      isAdmin: boolean;
-    };
-
-    const defaultUser: User = {
-      id: 1,
-      firstName: 'Matt',
-      lastName: 'Dude',
-      isAdmin: false,
-    };
     // act
     const id = getUserId(defaultUser);
     // asssert
