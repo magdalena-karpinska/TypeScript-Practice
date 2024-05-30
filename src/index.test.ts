@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2 } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -52,4 +52,15 @@ describe('ts tests', () => {
     // assert
     assert.strictEqual('Matt Dude', name2);
   });
+  
+  it('Should work with only the first name as param', () => {
+    // arrange
+    // act
+    const firstName = getName2('Matt');
+    const bothNames = getName2('Matt', 'Dude');
+    // assert
+    assert.strictEqual('Matt', firstName);
+    assert.strictEqual('Matt Dude', bothNames);
+  });
+
 });
