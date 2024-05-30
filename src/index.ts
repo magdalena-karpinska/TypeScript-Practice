@@ -51,3 +51,29 @@ export const newDefaultUser: NewUser = {
   lastName: 'Dude',
   role: "admin"
 };
+
+interface User2 {
+  id: number;
+  firstName: string;
+  lastName: string;
+  role: 'admin' | 'user' | 'super-admin';
+  posts: Post[]; // or Array<Post>
+}
+
+interface Post {
+  id: number;
+  title: string;
+}
+
+  export const defaultUser2: User2 = {
+    id: 1,
+    firstName: 'Matt',
+    lastName: 'Dude',
+    role: 'admin',
+    posts:[
+      {
+      id: 1,
+      title: 'How I eat so much cheese',
+      }
+    ]
+  };
