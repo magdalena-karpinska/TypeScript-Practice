@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser, makeUser, defaultUser2 } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser, makeUser, defaultUser2, guitarists } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -82,5 +82,15 @@ describe('ts tests', () => {
     assert.strictEqual(typeof user.role, 'string');
     assert.strictEqual(typeof user.posts[0].id, 'number');
     assert.strictEqual(typeof user.posts[0].title, 'string');
+  });
+
+  it('Should contain Jimi and Eric', () => {
+    // arrange
+    // act
+    const jimi = guitarists.has('Jimi Hendrix');
+    const eric = guitarists.has('Eric Clapton');
+    //assert
+    assert.strictEqual(jimi, true);
+    assert.strictEqual(eric, true);
   });
 });

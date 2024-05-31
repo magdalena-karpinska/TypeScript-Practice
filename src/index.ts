@@ -1,3 +1,4 @@
+// The implicit 'any' type error
 export const addTwoNumbers = (a: number, b: number) => a + b;
 
 type Params = {
@@ -6,8 +7,10 @@ type Params = {
   second: number;
 };
 
+// Working with object params
 export const addTwoNums = (params: Params) => params.first + params.second;
 
+// Set properties as optional
 export const getName = (params: { first: string; last?: string }) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
@@ -15,6 +18,7 @@ export const getName = (params: { first: string; last?: string }) => {
   return params.first;
 };
 
+// Optional parameters
 export const getName2 = (first: string, last?: string) => {
   if (last) {
     return `${first} ${last}`;
@@ -22,6 +26,7 @@ export const getName2 = (first: string, last?: string) => {
   return first;
 };
 
+// Assigning types to variables
 interface User {
   id: number;
   firstName: string;
@@ -38,6 +43,7 @@ export const defaultUser: User = {
 
 export const getUserId = (user: User) => user.id;
 
+// Constraining value types
 interface NewUser {
   id: number;
   firstName: string;
@@ -52,6 +58,7 @@ export const newDefaultUser: NewUser = {
   role: "admin"
 };
 
+// Working with arrays
 interface User2 {
   id: number;
   firstName: string;
@@ -78,6 +85,7 @@ interface Post {
     ]
   };
 
+  // Function return type annotation
   export const makeUser = ():User2 => {
     return {
     id: 1,
@@ -112,3 +120,9 @@ interface Post {
   
     return data;
   };
+
+  // Passing type arguments
+  export const guitarists = new Set<string>();
+
+  guitarists.add('Jimi Hendrix');
+  guitarists.add('Eric Clapton');
