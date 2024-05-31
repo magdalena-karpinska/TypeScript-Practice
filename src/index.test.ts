@@ -1,6 +1,6 @@
 import 'mocha';
 import assert from 'assert';
-import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser, makeUser, defaultUser2, guitarists } from './index';
+import { addTwoNumbers, addTwoNums, getName, getName2, getUserId, defaultUser, makeUser, defaultUser2, guitarists, createCache } from './index';
 
 describe('ts tests', () => {
   it('Should add two numbers together', () => {
@@ -92,5 +92,24 @@ describe('ts tests', () => {
     //assert
     assert.strictEqual(jimi, true);
     assert.strictEqual(eric, true);
+  });
+
+  it('Should add values to the cache', () => {
+    // arrange
+    const cacheObject = createCache();
+    // act
+    cacheObject.add('123', 'Matt');
+    // assert
+    assert.strictEqual(cacheObject.cache['123'], 'Matt');
+  });
+
+  it('Should remove values from the cache', () => {
+    // arrange
+    const cacheObject = createCache();
+    // act
+    cacheObject.add('123', 'Matt');
+    cacheObject.remove('123');
+    // assert
+    assert.strictEqual(cacheObject.cache['123'], undefined);
   });
 });
