@@ -145,3 +145,11 @@ interface Post {
       remove,
     };
   };
+
+  // Narrowing Down Union Types
+  export const coerceAmount = (amount: number | { amount: number }) => {
+    if (typeof amount === 'object') {
+      return amount.amount;
+    }
+    return amount;
+  };
